@@ -31,13 +31,25 @@ toc-title: "Sommaire"
 
 
 ```{r setup, include=FALSE}
-library(knitr)
-library(kableExtra)
-library(dplyr)
-library(ggplot2)
-library(patchwork)
-```
 
+packages <- c(
+  "knitr",
+  "kableExtra",
+  "dplyr",
+  "ggplot2",
+  "patchwork"
+)
+
+# Installer les packages manquants
+installed <- packages %in% rownames(installed.packages())
+if (any(!installed)) {
+  install.packages(packages[!installed])
+}
+
+# Charger les packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+```
 
 # Introduction
 
